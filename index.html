@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Peddy - Pet Adoption Platform</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://kit.fontawesome.com/d313a98513.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      /* Spinner styles */
+      #spinner {
+        display: none;
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        border-top: 4px solid #000;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 20px auto;
+      }
+
+      /* Spinner animation */
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body class="box-border">
+    <header class="w-11/12 mx-auto">
+      <div class="navbar bg-base-100">
+        <div class="navbar-start">
+          <a class="btn btn-ghost text-xl">
+            <img src="./images/logo.webp" alt="" />
+            <p>Peddy</p>
+          </a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="navbar-end">
+          <a class="btn btn-ghost" href="#"
+            ><i
+              class="fa-regular fa-user border border-gray-400 p-2 rounded-full"
+            ></i
+          ></a>
+        </div>
+      </div>
+    </header>
+    <main class="w-11/12 mx-auto">
+      <section class="mt-14 mb-10">
+        <div
+          class="flex flex-col justify-center items-center text-center space-y-8"
+        >
+          <p class="font-bold text-2xl text-[#131313]/[0.6]">
+            Bringing Families Together ❤️‍🔥
+          </p>
+          <h1 class="text-6xl">
+            Your Path to Adoption <br />
+            Starts Here
+          </h1>
+          <p>
+            Pet adoption gives homeless animals a second chance at a loving
+            home. By choosing to adopt, <br />
+            you can save a life and gain a loyal companion.
+          </p>
+          <button
+            id="scrollButton"
+            class="bg-[#0E7A81] text-white px-8 py-4 rounded-xl"
+          >
+            View More
+          </button>
+          <img src="./images/pet.webp" alt="" />
+        </div>
+      </section>
+      <section class="mb-10">
+        <div
+          class="flex flex-col justify-center items-center text-center space-y-8"
+        >
+          <h1 id="targetSection" class="text-4xl font-semibold">
+            Adopt Your Best Friend
+          </h1>
+          <p>
+            Adopting a pet often costs less than buying from a breeder and
+            supports animal welfare organizations. The process <br />
+            can be rewarding, allowing you to find a pet whose personality
+            matches your lifestyle.
+          </p>
+        </div>
+
+        <!-- Grid task using API -->
+        <div
+          id="pet-header"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 space-x-4 space-y-4 mt-16 place-items-center"
+        ></div>
+
+        <div
+          id="pet-container"
+          class="flex justify-between items-center mt-6"
+        ></div>
+
+        <div id="pet-description" class="flex justify-between mt-10 space-x-4">
+          <div id="spinner"></div>
+          <div
+            id="pet-description-left"
+            class="w-4/5 border-solid border-2 border-gray-300 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 space-y-4 space-x-4 p-4 rounded-xl"
+          >
+            <div id="error" class="hidden">
+              <img src="../images/error.webp" />
+              <p class="font-bold text-xl">No Information Available!</p>
+            </div>
+          </div>
+          <div
+            id="pet-description-right"
+            class="grid grid-cols-1 md:grid-cols-2 auto-rows-max w-1/5 border-2 border-solid border-gray-300 rounded-xl"
+          ></div>
+        </div>
+
+        <!-- show modal here  -->
+
+        <!-- Open the modal using ID.showModal() method -->
+        <div id="modal-container"></div>
+
+        <div id="modal-adopt"></div>
+      </section>
+    </main>
+    <footer class="bg-black text-white">
+      <div class="w-11/12 mx-auto flex flex-col lg:flex-row lg:justify-between">
+        <div class="flex flex-col my-5 lg:my-10">
+          <div class="flex gap-3 mb-5">
+            <img src="./images/logo.webp" alt="" />
+            <p class="text-xl">Peddy</p>
+          </div>
+          <p class="text-[#FFFFFF]/[0.6]">
+            Location: av. Washington 165, NY CA 54003
+          </p>
+          <p class="text-[#FFFFFF]/[0.6]">Phone: +31 85 964 47 25</p>
+          <p class="text-[#FFFFFF]/[0.6]">Email: info@yourdomain.com</p>
+          <p class="text-[#FFFFFF]/[0.6]">Openings hours: 9.00 AM - 5.00 PM</p>
+        </div>
+        <div class="my-5 lg:my-10">
+          <p class="font-semibold text-xl mb-5">Useful Links</p>
+          <p class="text-[#FFFFFF]/[0.6]">Home</p>
+          <p class="text-[#FFFFFF]/[0.6]">About Us</p>
+          <p class="text-[#FFFFFF]/[0.6]">Foundations</p>
+          <p class="text-[#FFFFFF]/[0.6]">Animals</p>
+          <p class="text-[#FFFFFF]/[0.6]">Contact</p>
+        </div>
+        <div class="flex flex-col my-5 lg:my-10">
+          <p class="font-semibold text-xl mb-5">Drop a message</p>
+          <input
+            type="email"
+            class="bg-[#FFFFFF]/[0.05] px-4 py-4 rounded-xl"
+            placeholder="Enter your email"
+          /><br />
+          <button class="bg-[#0E7A81] px-8 py-4 rounded-lg">Subscribe</button>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./js/index.js"></script>
+  </body>
+</html>
